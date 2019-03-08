@@ -14,7 +14,7 @@ namespace ComicBookGallery.Controllers
         //ActionMethods need to be public too!!
         //contentresult and redirectresult havce a common baseClass ==> ActionResult base class
         //because of this ActionResult is almost always used as the returnType
-        public ActionResult Detail() 
+        public ActionResult Detail()
         {
             //if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
             //{
@@ -29,6 +29,18 @@ namespace ComicBookGallery.Controllers
             //{ Content= "Hello from the comic books controller" };
 
             //return new ViewResult();
+
+            ViewBag.SeriesTitle = "The Amazing Spider-Man";
+            ViewBag.IssueNumber = 700;
+            ViewBag.Description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
+            ViewBag.Artists = new string[]
+            {
+                "Script: Dan Slott",
+                "Pencils: Humberto Ramos",
+                "Inks: Victor Olazaba",
+                "Colors: Edgar Delgado",
+                "Letters: Chris Eliopoulos"
+            };
             return View();
 
 
