@@ -1,6 +1,7 @@
 ﻿@*Typing the @ symbol tells the editor that we want to switch to  using c#!!*@
 
 @{
+    //Setting the layout  property to Layout = null, tells MVC that there is no layout page!!!!
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Comic Book Detail";
 
@@ -19,7 +20,7 @@
         <ul>
             @foreach (var item in ViewBag.Artists)
             {
-                <li> @item</li>
+                <li> @item</li>;
             }
         </ul>
     </div>

@@ -16,11 +16,13 @@ namespace ComicBookGallery.Controllers
         //because of this ActionResult is almost always used as the returnType
         public ActionResult Detail()
         {
-            //if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
-            //{
-            //    //return new RedirectResult("");
-            //    return Redirect("/"); //we can call the redirect method that is part of our controllerclass
-            //}
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+            {
+                //return new RedirectResult("");
+                //return Redirect("/"); //we can call the redirect method that is part of our controllerclass
+            }
+
+
             //return Content("Hello from the comic books controller");
 
 
