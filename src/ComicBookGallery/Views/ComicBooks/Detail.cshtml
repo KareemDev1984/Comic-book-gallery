@@ -17,7 +17,7 @@
         <div class="well">
             <h5><label>SeriesTitle: </label>@Model.SeriesTitle</h5>
             <h5><label>Issue #: </label> @Model.IssueNumber</h5>
-            <h5><label>Favorite: </label>@Model.Favorite? "Yes": "No"</h5>
+            <h5><label>Favorite: </label>@(Model.Favorite? " Yes": " No")</h5>
             @if (Model.Artists.Length > 0)
             {
                 <h5>Artists:</h5>
