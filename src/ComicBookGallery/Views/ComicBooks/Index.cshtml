@@ -15,10 +15,14 @@
     {
         
     <div class="col-md-3">
-        <h4>@comicbook.DisplayText</h4>
+        @*GEBRUIK VAN @@HTML.ACTIONLINK FUNCTIE MET ANONYMOUS TYPES(VOOR HET AAN MAKEN VEN EEN ANONIEM ROUTEVALUE!!) OM TEKST ALS LINK TE GEBRUIKEN8 *@
+        <h4>@Html.ActionLink(comicbook.DisplayText, "Detail", new { id = comicbook.ID })</h4>
+        @* OM IMAGES ALS HYPERLINK TE GEBRUIKEN MOETEN EERST DE IMAGE TAG IN EEN ANCOR ZETTEN EN HIER DE @URL.ACTION METHODE GEBRUIKEN MET (ACTIONNAME EN ANONIEME ROUTE VALUE)*@
+        <a href="@Url.Action("Detail", new {id = comicbook.ID })">
         <img src="/images/@comicbook.CoverImageFileName"
              alt="@comicbook.DisplayText"
              class="img-responsive" />
+        </a>
     </div>
     }
 </div>

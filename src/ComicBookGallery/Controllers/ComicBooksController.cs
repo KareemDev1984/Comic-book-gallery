@@ -13,16 +13,16 @@ namespace ComicBookGallery.Controllers
     //controllerclasses need to be public otherwise MVC won't be able to find and use them.
     public class ComicBooksController : Controller
     {
-        private ComikBookRepository _comikBookRepoitory = null;
+        private ComikBookRepository _comikBookRepository = null;
         public ComicBooksController()
         {
-            _comikBookRepoitory = new ComikBookRepository();
+            _comikBookRepository = new ComikBookRepository();
 
         }
 
         public ActionResult Index()
         {
-            var comicBooks = _comikBookRepoitory.GetComicBooks();
+            var comicBooks = _comikBookRepository.GetComicBooks();
             return View(comicBooks);
         }
         //ActionMethods need to be public too!!
@@ -50,7 +50,7 @@ namespace ComicBookGallery.Controllers
             //{ Content= "Hello from the comic books controller" };
 
             //return new ViewResult();
-            var comicBook = _comikBookRepoitory.GetComicBook((int)id);
+            var comicBook = _comikBookRepository.GetComicBook((int)id);
             return View(comicBook);
 
 
