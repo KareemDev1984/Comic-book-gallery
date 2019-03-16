@@ -16,7 +16,8 @@ namespace ComicBookGallery
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional } ==> defautlt homepage verwacht een Home controller, hieronder aangepast naar "Comikbooks" zodat onze web app kan worden gerund zonder  404 error
+                defaults: new { controller = "ComicBooks", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -13,6 +13,8 @@ namespace ComicBookGallery
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            /// rechtermuisklik op routeconfig ==> go to definition to change our homepage!!
         }
+
     }
 }
