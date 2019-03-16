@@ -1,4 +1,5 @@
-﻿using ComicBookGallery.Models;
+﻿using ComicBookGallery.Data;
+using ComicBookGallery.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,27 @@ namespace ComicBookGallery.Controllers
     //controllerclasses need to be public otherwise MVC won't be able to find and use them.
     public class ComicBooksController : Controller
     {
+        private ComikBookRepository _comikBookRepoitory = null;
+        public ComicBooksController()
+        {
+            _comikBookRepoitory = new ComikBookRepository();
+        }
+
         //ActionMethods need to be public too!!
         //contentresult and redirectresult havce a common baseClass ==> ActionResult base class
         //because of this ActionResult is almost always used as the returnType
-        public ActionResult Detail()
+        public ActionResult Detail(int? id)
         {
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+
+            if (id == null)
             {
-                //return new RedirectResult("");
-                //return Redirect("/"); //we can call the redirect method that is part of our controllerclass
+                return HttpNotFound();
             }
+            //if (DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+            //{
+            //    //return new RedirectResult("");
+            //    //return Redirect("/"); //we can call the redirect method that is part of our controllerclass
+            //}
 
 
             //return Content("Hello from the comic books controller");
@@ -32,20 +44,7 @@ namespace ComicBookGallery.Controllers
             //{ Content= "Hello from the comic books controller" };
 
             //return new ViewResult();
-            var comicBook = new ComicBook()
-            {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-                Artists = new Artist[]
-            {
-                new Artist("Humberto Ramos","Pencils"),
-                new Artist("Victor Olazaba","Inks"),
-                new Artist("Edgar Delgado","Colors"),
-                new Artist("Chris Eliopoulos","Letters"),
-
-            }
-            };
+            var comicBook = _comikBookRepoitory.GetComicBook((int)id);
             return View(comicBook);
 
 
