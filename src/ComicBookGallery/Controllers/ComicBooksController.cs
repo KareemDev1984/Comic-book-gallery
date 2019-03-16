@@ -17,8 +17,14 @@ namespace ComicBookGallery.Controllers
         public ComicBooksController()
         {
             _comikBookRepoitory = new ComikBookRepository();
+
         }
 
+        public ActionResult Index()
+        {
+            var comicBooks = _comikBookRepoitory.GetComicBooks();
+            return View(comicBooks);
+        }
         //ActionMethods need to be public too!!
         //contentresult and redirectresult havce a common baseClass ==> ActionResult base class
         //because of this ActionResult is almost always used as the returnType
