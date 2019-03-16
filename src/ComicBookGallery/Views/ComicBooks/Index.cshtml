@@ -1,7 +1,24 @@
-﻿
+﻿@model ComicBookGallery.Models.ComicBook[]
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Comic Books";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
+@*Here’s the markup that the designer provided to us for the “Comic Books List” view.*@
+
+<div class="row">
+
+    @*Model in de foreach verwijst naar de array dat we hierboven in de @MODEL property hebben gestoken!*@
+    @foreach (var comicbook in Model)
+    {
+        
+    <div class="col-md-3">
+        <h4>@comicbook.DisplayText</h4>
+        <img src="/images/@comicbook.CoverImageFileName"
+             alt="@comicbook.DisplayText"
+             class="img-responsive" />
+    </div>
+    }
+</div>

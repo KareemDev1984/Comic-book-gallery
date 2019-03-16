@@ -4,7 +4,9 @@
 
 @{
     //Setting the layout  property to Layout = null, tells MVC that there is no layout page!!!!
-    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //Layout = "~/Views/Shared/_Layout.cshtml"; // niet meer nodig want bij het aanmaken van Index action Method werd er automatisch een viewstart.chtml file aangemaakt waarin  de shared layout wordt vastgelegd
+
     ViewBag.Title = "Model.DisplayText";
 
 }
